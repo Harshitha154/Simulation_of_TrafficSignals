@@ -1,0 +1,443 @@
+import turtle
+import time
+from turtle import Screen
+screen=Screen()
+from turtle import *
+wn=turtle.Screen()
+wn.title("trafficlights")
+wn.bgcolor("black")
+def repeat1(p,q,r):
+    for i in range(4):
+        if keys[i]==1:
+            w=keys[i]
+            f=d[w]-1
+            if(f==0):
+                colorroad1(queue[r],nov1)
+            elif(f==1):
+                colorroad1(queue[p],nov1)
+            elif(f==2):
+                colorroad1(queue[q],nov1)
+        if keys[i]==2:
+            w=keys[i]
+            f=d[w]-1
+            if(f==0):
+                colorroad2(queue[r],nov2)
+            elif(f==1):
+                colorroad2(queue[p],nov2)
+            elif(f==2):
+                colorroad2(queue[q],nov2)
+        if keys[i]==3:
+            w=keys[i]
+            f=d[w]-1
+            if(f==0):
+                colorroad3(queue[r],nov3)
+            elif(f==1):
+                colorroad3(queue[p],nov3)
+            elif(f==2):
+                colorroad3(queue[q],nov3)
+        if keys[i]==4:
+            w=keys[i]
+            f=d[w]-1
+            if(f==0):
+                colorroad4(queue[r],nov4)
+            elif(f==1):
+                colorroad4(queue[p],nov4)
+            elif(f==2):
+                colorroad4(queue[q],nov4)
+def mainroad(index):
+    if(index==0):
+        colorroad1(clr,nov1)
+    elif(index==1):
+        colorroad2(clr,nov2)
+    elif(index==2):
+        colorroad3(clr,nov3)
+    elif(index==3):
+        colorroad4(clr,nov4)
+def colorroad1(clr,nov1):
+    d.update({1:int(clr)})
+    if(int(clr)==2):
+        x=-100
+        y=-30
+        ro.penup()
+        ro.goto(x,y)
+        ro.pendown() 
+        for j in range(nov1):
+            ro.pencolor("yellow")
+            ro.width(10)
+            ro.write(">",font=("arial",50,"normal"))
+            x=x-70
+            ro.penup()
+            ro.goto(x,y)
+            ro.pendown()
+    if(int(clr)==3):
+        x=-100
+        y=-30
+        ro.penup()
+        ro.goto(x,y)
+        ro.pendown()
+        for j in range(nov1):
+            ro.pencolor("green")
+            ro.width(10)
+            ro.write(">",font=("arial",50,"normal"))
+            x=x-70
+            ro.penup()
+            ro.goto(x,y)
+            ro.pendown()
+    if(int(clr)==1):
+        x=-100
+        y=-30
+        ro.penup()
+        ro.goto(x,y)
+        ro.pendown()
+        for j in range(nov1):
+            ro.pencolor("red")
+            ro.width(10)
+            ro.write(">",font=("arial",50,"normal"))
+            x=x-70
+            ro.penup()
+            ro.goto(x,y)
+            ro.pendown()
+    return clr
+def colorroad2(clr,nov2):
+    d.update({2:int(clr)})
+    if(int(clr)==2):
+        x=100
+        y=-30
+        ro.penup()
+        ro.goto(x,y)
+        ro.pendown()
+        for j in range(nov2):
+            ro.pencolor("yellow")
+            ro.width(10)
+            ro.write("<",font=("arial",50,"normal"))
+            x=x+70
+            ro.penup()
+            ro.goto(x,y)
+            ro.pendown()
+    elif(int(clr)==3):
+        x=100
+        y=-30
+        ro.penup()
+        ro.goto(x,y)
+        ro.pendown()
+        for j in range(nov2):
+            ro.pencolor("green")
+            ro.width(10)
+            ro.write("<",font=("arial",50,"normal"))
+            x=x+70
+            ro.penup()
+            ro.goto(x,y)
+            ro.pendown()
+    elif(int(clr)==1):
+        x=100
+        y=-30
+        ro.penup()
+        ro.goto(x,y)
+        ro.pendown()
+        for j in range(nov2):
+            ro.pencolor("red")
+            ro.width(10)
+            ro.write("<",font=("arial",50,"normal"))
+            x=x+70
+            ro.penup()
+            ro.goto(x,y)
+            ro.pendown()
+    return clr
+def colorroad3(clr,nov3):
+
+    d.update({3:int(clr)})
+    if(int(clr)==2):
+        x=-25
+        y=150
+        ro.penup()
+        ro.goto(x,y)
+        ro.pendown()
+        for j in range(nov3):
+            ro.pencolor("yellow")
+            ro.width(10)
+            ro.write("v",font=("arial",50,"normal"))
+            y=y+70
+            ro.penup()
+            ro.goto(x,y)
+            ro.pendown()
+    elif(int(clr)==3):
+        x=-25
+        y=150
+        ro.penup()
+        ro.goto(x,y)
+        ro.pendown()
+        for j in range(nov3):
+            ro.pencolor("green")
+            ro.width(10)
+            ro.write("v",font=("arial",50,"normal"))
+            y=y+70
+            ro.penup()
+            ro.goto(x,y)
+            ro.pendown()
+    elif(int(clr)==1):
+         x=-25
+         y=150
+         ro.penup()
+         ro.goto(x,y)
+         ro.pendown()
+         for j in range(nov3):
+             ro.pencolor("red")
+             ro.width(10)
+             ro.write("v",font=("arial",50,"normal"))
+             y=y+70
+             ro.penup()
+             ro.goto(x,y)
+             ro.pendown()
+    return clr
+def colorroad4(clr,nov4):
+    d.update({4:int(clr)})
+    if(int(clr)==2):
+        x=-5
+        y=-150
+        ro.penup()
+        ro.goto(x,y)
+        ro.pendown()
+        for j in range(nov4):
+            ro.pencolor("yellow")
+            ro.width(10)
+            ro.write("v",font=("arial",50,"normal"))
+            y=y-70
+            ro.penup()
+            ro.goto(x,y)
+            ro.pendown()       
+    elif(int(clr)==3):
+         x=-5
+         y=-150
+         ro.penup()
+         ro.goto(x,y)
+         ro.pendown()
+         for j in range(nov4):
+             ro.pencolor("green")
+             ro.width(10)
+             ro.write("v",font=("arial",50,"normal"))
+             y=y-70
+             ro.penup()
+             ro.goto(x,y)
+             ro.pendown()
+    elif(int(clr)==1):
+         x=-5
+         y=-150
+         ro.penup()
+         ro.goto(x,y)
+         ro.pendown()
+         for j in range(nov4):
+             ro.pencolor("red")
+             ro.width(10)
+             ro.write("v",font=("arial",50,"normal"))
+             y=y-70
+             ro.penup()
+             ro.goto(x,y)
+             ro.pendown()
+#circular queue
+            
+queue = [None for i in range(3)]
+front=-1
+rear=-1
+print("1:red 2:yellow 3:green")
+for i in range(3):
+    data=input("enter number equivalent to color")
+    if (queue[front] == -1 and queue[rear]==-1):
+        front = 0
+        rear = 0
+        queue[rear] = data
+    else:
+        rear = (rear+ 1) % 3
+        queue[rear] = data
+#road1 left
+ro=turtle.Turtle()
+ro.speed(50)
+ro.color("white")
+ro.width(2)
+ro.penup()
+ro.goto(-520,70)
+ro.pendown()
+ro.forward(450)
+ro.penup()
+ro.goto(-520,-70)
+ro.pendown()
+ro.forward(450)
+#road2 right
+ro.penup()
+ro.goto(520,70)
+ro.pendown()
+ro.backward(450)
+ro.penup()
+ro.goto(520,-70)
+ro.pendown()
+ro.backward(450)
+#road 3 top
+ro.penup()
+ro.goto(-70,470)
+ro.pendown()
+ro.right(90)
+ro.forward(400)
+ro.penup()
+ro.goto(70,470)
+ro.pendown()
+ro.forward(400)
+#road 4 bottom
+ro.penup()
+ro.goto(-70,-470)
+ro.pendown()
+ro.backward(400)
+ro.penup()
+ro.goto(70,-470)
+ro.pendown()
+ro.backward(400)
+ro.penup()
+ro.goto(-400,400)
+ro.pendown()
+ro.color("sky blue")
+ro.write("Traffic Signals",font=("arial",30,"normal"))
+#lights
+pen=turtle.Turtle()
+pen.color("orange")
+pen.width(3)
+pen.speed(20)
+pen.hideturtle()
+pen.penup()
+pen.goto(-30,60)
+pen.pendown()
+pen.fd(60)
+pen.rt(90)
+pen.fd(120)
+pen.rt(90)
+pen.fd(60)
+pen.rt(90)
+pen.fd(120)
+# red light
+red_light=turtle.Turtle()
+red_light.shape("circle")
+red_light.color("grey")
+red_light.penup()
+red_light.goto(0,40)
+red_light.color("red")
+# yellow light
+yellow_light=turtle.Turtle()
+yellow_light.shape("circle")
+yellow_light.color("grey")
+yellow_light.penup()
+yellow_light.goto(0,0)
+yellow_light.color("yellow") 
+# green light
+green_light=turtle.Turtle()
+green_light.shape("circle")
+green_light.color("grey")
+green_light.penup()
+green_light.goto(0,-40)
+green_light.penup()
+green_light.color("green")
+#list to store no.of vehicles
+l=[]
+#take inputs
+ro.penup()
+ro.goto(-400,300)
+ro.pendown()
+#no.of vehicles in road1
+x=-100
+y=-30
+ro.penup()
+ro.goto(x,y)
+ro.pendown()
+nov1=int(input("enter no.of vehicles in road1"))
+l.append(nov1)
+for j in range(nov1):
+    ro.pencolor("grey")
+    ro.width(10)
+    ro.write(">",font=("arial",50,"normal"))
+    x=x-70
+    ro.penup()
+    ro.goto(x,y)
+    ro.pendown()
+#no.of vehicles in road2
+x=100
+y=-30
+ro.penup()
+ro.goto(x,y)
+ro.pendown()
+nov2=int(input("enter no.of vehicles in road2"))
+l.append(nov2)
+for j in range(nov2):
+    ro.pencolor("grey")
+    ro.width(10)
+    ro.write("<",font=("arial",50,"normal"))
+    x=x+70
+    ro.penup()
+    ro.goto(x,y)
+    ro.pendown()
+#no.of vehicles in road3
+x=-25
+y=150
+ro.penup()
+ro.goto(x,y)
+ro.pendown()
+nov3=int(input("enter no.of vehicles in road3"))
+l.append(nov3)
+for j in range(nov3):
+    ro.pencolor("grey")
+    ro.width(10)
+    ro.write("v",font=("arial",50,"normal"))
+    y=y+70
+    ro.penup()
+    ro.goto(x,y)
+    ro.pendown()
+#no.of vehicles in road4
+x=-5
+y=-150
+ro.penup()
+ro.goto(x,y)
+ro.pendown()
+nov4=int(input("enter no.of vehicles in road4"))
+l.append(nov4)
+for j in range(nov4):
+    ro.pencolor("grey")
+    ro.width(10)
+    ro.write("v",font=("arial",50,"normal"))
+    y=y-70
+    ro.penup()
+    ro.goto(x,y)
+    ro.pendown()
+d={}
+p=rear
+m1=max(l)
+clr=queue[p]
+index=l.index(m1)
+mainroad(index)
+l[index]=100
+q=(p+1)%3
+clr=queue[q]
+m1=min(l)
+index=l.index(m1)
+mainroad(index)
+l[index]=100
+clr=queue[q]
+m1=min(l)
+index=l.index(m1)
+mainroad(index)
+l[index]=100
+r=(q+1)%3
+clr=queue[r]
+m1=min(l)
+index=l.index(m1)
+mainroad(index)
+l[index]=100
+time.sleep(5)
+keys=list(d.keys())
+p=(r+1)%3
+repeat1(p,q,r)
+time.sleep(5)
+repeat1(p,q,r)
+
+
+
+
+
+
+
+
+
